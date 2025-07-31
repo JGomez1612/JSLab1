@@ -48,27 +48,27 @@ const isValid = isSum50 && isTwoOdd && !isOver25 && isUnique;
 // PART 1 -----------------------------------------------------------------------------------------------------------
 
 //Check if all numbers are divisible by 5. Cache the result in a variable.
-const isDivisibleBy5 = (n1 % 5) === 0 && (n2 % 5) === 0 && (n3 % 5) === 0 && (n4 % 5) === 0;
+const isDiv5 = (n1 % 5) + (n2 % 5) + (n3 % 5) + (n4 % 5) == 0;
+console.log( `It is ${isDiv5} all these numbers are divisible by 5`)
 
 //Check if the first number is larger than the last. Cache the result in a variable.
 const isNumOver = n1 > n4;
+console.log(`The first number being larger than the last number is deemed to be ${isNumOver}`)
 
 //Accomplish the following arithmetic chain:
 // //Subtract the first number from the second number.
-const minusN1N2 = (n1 - n2);
-const difference = minusN1N2
+let num = n2 - n1;
+// console.log(`${n2} - ${n1} = ${num}`);
 // //Multiply the result by the third number.
-// console.log(difference)
-const multiN3 = (difference * n3);
-const mult = multiN3
+num *= n3
+// console.log(`${n2} - ${n1} * ${n3} = ${num}`);
 // //Find the remainder of dividing the result by the fourth number.
-// console.log(mult)
-const remainder = (mult % n4);
-// console.log(remainder)
+num %= n4
+// console.log(`${n2} - ${n1} * ${n3} % ${n4} = ${num}`);
 //Change the way that isOver25 calculates so that we do not need to use the NOT operator (!) in other logic comparisons. Rename the variable as appropriate.
-const isUnder25 = n1 < 25 || n2 < 25 || n3 < 25 || n4 < 25;
+const isUnder25 = n1 < 25 && n2 < 25 && n3 < 25 && n4 < 25;
 
-const isTrue = isDivisibleBy5 && isNumOver && isUnder25 && remainder === 0;
+const isTrue = isDiv5 && isNumOver && isUnder25 && num === 0;
 
 console.log(`The four numbers are valid because the provided criteria is ${isTrue}`);
 
@@ -97,7 +97,7 @@ const fuelBudget = 175;
 const costOfFuel = 3;
 
 // How many gallons of fuel will you need for the entire trip?
-console.log(`Gallons at ${gal55}, Gallons at ${gal60}, Gallons at ${gal75}`);
+// console.log(`Gallons at ${gal55}, Gallons at ${gal60}, Gallons at ${gal75}`);
 
 // Will your budget be enough to cover the fuel expense?
 
